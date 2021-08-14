@@ -6,19 +6,19 @@ function eval() {
 const OPERATORS = {
   '+': {
     priority: 1,
-    eval: (x, y) => x + y
+    calc: (x, y) => x + y
   },
   '-': {
     priority: 1,
-    eval: (x, y) => x - y
+    calc: (x, y) => x - y
   },
   '*': {
     priority: 2,
-    eval: (x, y) => x * y
+    calc: (x, y) => x * y
   },
   '/': {
     priority: 2,
-    eval: (x, y) => {
+    calc: (x, y) => {
       if (y == 0) {
         throw new Error("TypeError: Division by zero.")
       }
@@ -49,7 +49,7 @@ function expressionCalculator(expr) {
       else {
         let y = stack.pop();
         let x = stack.pop()
-        let result = OPERATORS[item].eval(x, y);
+        let result = OPERATORS[item].calc(x, y);
         stack.push(result)
       }
   }
